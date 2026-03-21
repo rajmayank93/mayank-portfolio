@@ -121,7 +121,7 @@
 }
 
 .hero__cta-secondary:hover {
-  border-color: rgba(0, 0, 0, 0.2);
+  border-color: var(--c-border-hover);
   background: var(--c-surface);
   transform: translateY(-2px);
 }

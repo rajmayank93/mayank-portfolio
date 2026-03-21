@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useScrollDirection } from '../../hooks/useScrollDirection';
+import { useTheme } from '../../context/ThemeContext';
 import './Navbar.css';
 
 const NAV_LINKS = [
@@ -12,12 +13,36 @@ const NAV_LINKS = [
 
 const name = import.meta.env.VITE_NAME as string;
 
+function SunIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="5" />
+      <line x1="12" y1="1"  x2="12" y2="3"  />
+      <line x1="12" y1="21" x2="12" y2="23" />
+      <line x1="4.22" y1="4.22"   x2="5.64" y2="5.64"   />
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+      <line x1="1"  y1="12" x2="3"  y2="12" />
+      <line x1="21" y1="12" x2="23" y2="12" />
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </svg>
+  );
+}
+
 export default function Navbar() {
-  const direction = useScrollDirection();
-  const [active, setActive] = useState('');
+  const direction          = useScrollDirection();
+  const { theme, toggleTheme } = useTheme();
+  const [active, setActive]    = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Track active section via IntersectionObserver
   useEffect(() => {
     const sectionIds = NAV_LINKS.map((l) => l.href);
     const observers: IntersectionObserver[] = [];
@@ -25,11 +50,8 @@ export default function Navbar() {
     sectionIds.forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
-
       const obs = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActive(id);
-        },
+        ([entry]) => { if (entry.isIntersecting) setActive(id); },
         { threshold: 0.4 }
       );
       obs.observe(el);
@@ -49,14 +71,12 @@ export default function Navbar() {
     setMenuOpen(false);
   };
 
-  const initials = name
-
   return (
     <>
       <nav className={`navbar${direction === 'down' ? ' navbar--hidden' : ''}`}>
         <div className="navbar__inner">
           <div className="navbar__logo" onClick={scrollToTop} role="button" tabIndex={0}>
-            {initials}.<em></em>
+            {name}.
           </div>
 
           <ul className="navbar__links">
@@ -72,15 +92,26 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <button
-            className="navbar__hamburger"
-            onClick={() => setMenuOpen((o) => !o)}
-            aria-label="Toggle menu"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
+          <div className="navbar__right">
+            <button
+              className="navbar__theme-toggle"
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+              title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+            >
+              {theme === 'light' ? <MoonIcon /> : <SunIcon />}
+            </button>
+
+            <button
+              className="navbar__hamburger"
+              onClick={() => setMenuOpen((o) => !o)}
+              aria-label="Toggle menu"
+            >
+              <span />
+              <span />
+              <span />
+            </button>
+          </div>
         </div>
       </nav>
 

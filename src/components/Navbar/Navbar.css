@@ -8,7 +8,7 @@
   height: 64px;
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.82);
+  background: var(--c-nav-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--c-border);
@@ -36,11 +36,6 @@
   color: var(--c-text);
   letter-spacing: -0.01em;
   cursor: pointer;
-}
-
-.navbar__logo em {
-  font-style: italic;
-  color: var(--c-accent);
 }
 
 /* Nav links */
@@ -75,6 +70,35 @@
   font-weight: 500;
 }
 
+/* Right side cluster (toggle + hamburger) */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Theme toggle */
+.navbar__theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--c-border);
+  background: none;
+  color: var(--c-muted);
+  cursor: pointer;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.navbar__theme-toggle:hover {
+  color: var(--c-text);
+  background: var(--c-surface);
+  border-color: var(--c-border-hover);
+}
+
 /* Hamburger (mobile) */
 .navbar__hamburger {
   display: none;
@@ -102,7 +126,7 @@
   top: 64px;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.97);
+  background: var(--c-nav-mobile-bg);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--c-border);
   padding: 16px var(--container-px) 24px;

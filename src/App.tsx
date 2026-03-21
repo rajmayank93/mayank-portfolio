@@ -1,4 +1,5 @@
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
@@ -44,6 +45,7 @@ const theme = extendTheme({
 
 export default function App() {
   return (
+    <ThemeProvider>
     <ChakraProvider theme={theme}>
       <Navbar />
       <main>
@@ -56,5 +58,6 @@ export default function App() {
       </main>
       <Footer />
     </ChakraProvider>
+    </ThemeProvider>
   );
 }

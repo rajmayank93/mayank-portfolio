@@ -1,0 +1,16 @@
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  opacity: 0.038;
+  mix-blend-mode: overlay;
+  filter: url(#grain-filter);
+  /* Prevents any layout interaction */
+  will-change: filter;
+}
+
+/* Slightly stronger grain in dark mode for that moody film look */
+[data-theme='dark'] .grain-overlay {
+  opacity: 0.055;
+}

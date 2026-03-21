@@ -1,0 +1,14 @@
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--c-accent);
+  z-index: 202; /* above navbar (100) and command palette (200) */
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.06s linear;
+  pointer-events: none;
+  box-shadow: 0 0 10px var(--c-accent), 0 0 4px var(--c-accent);
+}

@@ -1,0 +1,111 @@
+/* ── Code editor card ─────────────────────────────────────────────────── */
+.code-card {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.18),
+    0 4px 16px rgba(0, 0, 0, 0.08);
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+/* Window chrome */
+.code-card__bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  background: #252525;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.code-card__dots {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.code-card__dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  transition: opacity 0.2s;
+}
+
+.code-card__dot--red    { background: #ff5f57; }
+.code-card__dot--yellow { background: #febc2e; }
+.code-card__dot--green  { background: #28c840; }
+
+.code-card__filename {
+  flex: 1;
+  text-align: center;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.32);
+  letter-spacing: 0.02em;
+  padding-right: 52px; /* optical centre past the dots */
+}
+
+/* Code body — fixed height so the card never jumps */
+.code-card__body {
+  background: #1a1a1a;
+  padding: 18px 0;
+  height: 306px;
+  overflow: hidden;
+}
+
+/* Each line row */
+.code-line {
+  display: flex;
+  align-items: baseline;
+  padding: 0 20px;
+  min-height: 1.65em;
+  transition: background 0.12s;
+}
+
+.code-line:hover {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+/* Line number */
+.code-ln {
+  width: 24px;
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.16);
+  font-size: 0.7rem;
+  user-select: none;
+  text-align: right;
+  margin-right: 20px;
+}
+
+.code-text {
+  white-space: pre;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ── Syntax tokens ──────────────────────────────────────────────────────── */
+.t-comment  { color: rgba(255, 255, 255, 0.28); font-style: italic; }
+.t-keyword  { color: #c792ea; }  /* purple  — const / async / return / new  */
+.t-fn       { color: #82aaff; }  /* blue    — function names               */
+.t-param    { color: #f78c6c; }  /* orange  — identifiers / params         */
+.t-type     { color: #ffcb6b; }  /* yellow  — TypeScript types             */
+.t-string   { color: #c3e88d; }  /* green   — string literals              */
+.t-method   { color: #89ddff; }  /* cyan    — .method calls                */
+.t-punc     { color: rgba(255, 255, 255, 0.52); }
+
+/* Blinking cursor */
+.code-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 0.88em;
+  background: #c792ea;
+  vertical-align: text-bottom;
+  margin-left: 1px;
+  animation: blink 1.05s step-start infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}

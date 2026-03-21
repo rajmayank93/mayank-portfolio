@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { label: 'Projects',   href: 'projects'   },
   { label: 'About',      href: 'about'      },
   { label: 'Skills',     href: 'skills'     },
+  { label: 'Magic',      href: 'magic'      },
   { label: 'Contact',    href: 'contact'    },
 ];
 
@@ -37,7 +38,11 @@ function MoonIcon() {
   );
 }
 
-export default function Navbar() {
+interface NavbarProps {
+  onOpenPalette: () => void;
+}
+
+export default function Navbar({ onOpenPalette }: NavbarProps) {
   const direction          = useScrollDirection();
   const { theme, toggleTheme } = useTheme();
   const [active, setActive]    = useState('');
@@ -93,6 +98,11 @@ export default function Navbar() {
           </ul>
 
           <div className="navbar__right">
+            <button className="navbar__cmd-hint" onClick={onOpenPalette}>
+              <span>Search commands</span>
+              <kbd>⌘K</kbd>
+            </button>
+
             <button
               className="navbar__theme-toggle"
               onClick={toggleTheme}

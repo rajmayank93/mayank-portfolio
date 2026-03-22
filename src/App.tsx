@@ -68,7 +68,7 @@ export default function App() {
         <main>
           <Hero />
           <Experience />
-          <Projects />
+          {/* <Projects /> */}
           <About />
           <Skills />
           <Magic />

@@ -31,7 +31,7 @@ export default function Hero() {
               <em>{lastName}</em>
             </h1>
 
-            <p className="hero__role">{role} · 2 Years Experience</p>
+            <p className="hero__role">{role} · Around 2 Years Experience</p>
 
             <p className="hero__bio">
               I build fast, accessible, and beautifully crafted frontend systems.
@@ -42,8 +42,8 @@ export default function Hero() {
               <button className="hero__cta-primary" onClick={scrollToProjects}>
                 View Projects →
               </button>
-              <a className="hero__cta-secondary" href={resumeUrl} download>
-                Download Resume ↓
+              <a className="hero__cta-secondary" href={resumeUrl} target="_blank" rel="noopener noreferrer">
+                View Resume ↗
               </a>
             </div>
           </div>

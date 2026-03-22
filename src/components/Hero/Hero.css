@@ -129,6 +129,7 @@
 /* ── Right column ── */
 .hero__right {
   animation: fadeUp 0.7s 0.15s ease both;
+  min-width: 0; /* prevent grid item from expanding beyond its column */
 }
 
 /* Code card lives in CodeTypewriter.css */
@@ -141,7 +142,7 @@
   }
 
   .hero__right {
-    order: -1;
+    order: 1;
   }
 
   .hero__card {

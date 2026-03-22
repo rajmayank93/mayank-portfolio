@@ -1,9 +1,9 @@
 import CodeTypewriter from './CodeTypewriter';
 import './Hero.css';
 
-const name      = import.meta.env.VITE_NAME      as string;
-const role      = import.meta.env.VITE_ROLE      as string;
-const resumeUrl = import.meta.env.VITE_RESUME_URL as string;
+const name      = (import.meta.env.VITE_NAME      as string) ?? '';
+const role      = (import.meta.env.VITE_ROLE      as string) ?? '';
+const resumeUrl = (import.meta.env.VITE_RESUME_URL as string) ?? '#';
 
 const [firstName, ...rest] = name.split(' ');
 const lastName = rest.join(' ');

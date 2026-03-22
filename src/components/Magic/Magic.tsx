@@ -43,7 +43,7 @@ function GitHubFeed({ username }: { username: string }) {
             items.push({
               id:      c.sha,
               repo:    ev.repo.name.replace(`${username}/`, ''),
-              message: c.message.split('\n')[0].slice(0, 70),
+              message: (c.message ?? '').split('\n')[0].slice(0, 70),
               time:    timeAgo(ev.created_at),
             });
           }

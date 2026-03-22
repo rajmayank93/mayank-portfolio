@@ -122,7 +122,7 @@ const FEATURES = [
 export default function Magic() {
   const [ref, visible] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.08 });
 
-  const githubUrl  = import.meta.env.VITE_GITHUB as string ?? '';
+  const githubUrl  = (import.meta.env.VITE_GITHUB_URL as string) ?? '';
   const username   = githubUrl.replace(/^https?:\/\/github\.com\//, '').replace(/\/$/, '');
 
   return (

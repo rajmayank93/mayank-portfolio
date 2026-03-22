@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(npm install:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(vercel --version)",
+      "Bash(vercel --prod)",
+      "Bash(vercel login:*)",
+      "Bash(vercel --prod --yes --env VITE_NAME=\"Mayank Gupta\" --env VITE_ROLE=\"Software Engineer\" --env VITE_EMAIL=\"rajmayank93@gmail.com\" --env VITE_PHONE=\"+91-6299696301\" --env VITE_LOCATION=\"Bangalore, India\" --env VITE_GITHUB_URL=\"https://github.com/rajmayank93\" --env VITE_LINKEDIN_URL=\"https://linkedin.com/in/rajmayank93\" --env VITE_LEETCODE_URL=\"https://leetcode.com/max0123\" --env VITE_RESUME_URL=\"https://drive.google.com/file/d/1ewolcGWOKo43zPF1k3s4O0el2MEhJoa5/view?usp=sharing\")",
+      "Bash(vercel --prod --yes --name mayankgupta --env VITE_NAME=\"Mayank Gupta\" --env VITE_ROLE=\"Software Engineer\" --env VITE_EMAIL=\"rajmayank93@gmail.com\" --env VITE_PHONE=\"+91-6299696301\" --env VITE_LOCATION=\"Bangalore, India\" --env VITE_GITHUB_URL=\"https://github.com/rajmayank93\" --env VITE_LINKEDIN_URL=\"https://linkedin.com/in/rajmayank93\" --env VITE_LEETCODE_URL=\"https://leetcode.com/max0123\" --env VITE_RESUME_URL=\"https://drive.google.com/file/d/1ewolcGWOKo43zPF1k3s4O0el2MEhJoa5/view?usp=sharing\")"
     ]
   }
 }
